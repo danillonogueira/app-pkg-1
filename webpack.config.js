@@ -1,6 +1,6 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
-const { ModuleFederationPlugin } = require('webpack').container; 
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const port = 8000;
@@ -62,6 +62,10 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: true,
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].css"
     }),
@@ -69,7 +73,7 @@ module.exports = {
       template: path.resolve(__dirname, "./public/index.html"),
       chunks: ["main"],
     }),
-    new ModuleFederationPlugin({
+    new webpack.container.ModuleFederationPlugin({
       name: "app_pkg_1",
       remotes: {},
       filename: "remoteEntry.js",
