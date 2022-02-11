@@ -1,14 +1,14 @@
 <template>
-  <Table />
+  <CasaDeCheck />
 </template>
 
 <script>
-import Table from './components/Table'
+import CasaDeCheck from './components/CasaDeCheck'
 
 export default {
   name: 'App',
   components: {
-    Table
+    CasaDeCheck
   }
 }
 </script>

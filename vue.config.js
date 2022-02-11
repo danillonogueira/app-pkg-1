@@ -9,7 +9,7 @@ module.exports = {
           name: 'app_pkg_1',
           filename: 'remoteEntry.js',
           exposes: {
-            './Table': './src/components/Table.vue',
+            './CasaDeCheck': './src/components/CasaDeCheck.vue',
           },
           shared: [
             {
